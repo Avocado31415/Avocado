@@ -99,7 +99,7 @@ int main(void){
         if(9==i){
             print1("there is no place to put the circle or cross.\n");
             print1("End this game.");
-            ch2 = 0;
+            break;
         }
     }
 }
@@ -111,7 +111,7 @@ void print1(char c[]){
         i++;
         Sleep(stop);
         if(c[i]=='\n'){
-            Sleep(stop*500);
+            Sleep(stop*50);
         }
     }
 }
@@ -163,12 +163,12 @@ int check2(char ox[]){//そろっているか確認 1を返すとoが、2を返�
     }
 
     if(ox[4]=='o'){
-        if((ox[0]=='o' && ox[8]=='o') || (ox[2]=='o' && ox[6]=='o')){
+        if((ox[0]=='o' && ox[8]=='o') || (ox[2]=='o' && ox[6]=='o')){//斜めにそろっている場合
             return 1;
         }
     }
-    //ここまでがoがそろっているかどうか
 
+    //ここまでがoがそろっているかどうか
 
     if(ox[1]=='x'){
         if(ox[0]=='x' && ox[2]=='x'){//横にそろってる場合
@@ -199,17 +199,15 @@ int check2(char ox[]){//そろっているか確認 1を返すとoが、2を返�
     }
 
     if(ox[4]=='x'){
-        if((ox[0]=='x' && ox[8]=='x') || (ox[2]=='x' && ox[6]=='x')){
+        if((ox[0]=='x' && ox[8]=='x') || (ox[2]=='x' && ox[6]=='x')){//斜めにそろっている場合
             return 1;
         }
     }
     //ここまでがxがそろっているかどうか
-
     return 0;
-
 }
 
-void change(char ox[], int x, int y, int i){//ox入れかえ
+void change(char ox[], int x, int y, int i){//?をoかxに入れかえる
     int ch1;
     ch1 = check1(ox,x,y);
     if(ch1 == 1){
